@@ -39,8 +39,13 @@ class Rating(db.Model):
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.movie_id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
 
+    #Adding relationships with other Classes(Movie, User):
+    movie = db.relationship('Movie', backref='ratings') #backref here is like we created an
+    user = db.relationship('User', backref='ratings')   #attribute named ratings in both
+                                                        #Class Movie and Class User
     def __repr__(self):
         return f'<Rating rating_id={self.rating_id} score={self.score}>'
+
         
 
 def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
