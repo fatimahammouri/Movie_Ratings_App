@@ -1,7 +1,7 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
-
+from datetime import datetime 
 db = SQLAlchemy()
 
 class User(db.Model):
@@ -13,12 +13,12 @@ class User(db.Model):
     password = db.Column(db.String(50))
 
     def __repr__(self):
-        return f"User user_id={self.user_id} email={self.email}"
+        return f"<<User user_id={self.user_id} email={self.email}>>"
 
 class Movie(db.Model):
     __tablename__ = "movies"
     movie_id = db.Column(db.Integer, primary_key=True,
-                        autoincrementing=True)
+                        autoincrement=True)
     title = db.Column(db.String)
     overview = db.Column(db.Text)
     release_date = db.Column(db.DateTime)
