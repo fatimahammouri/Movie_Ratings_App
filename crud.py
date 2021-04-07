@@ -9,12 +9,12 @@ def create_user(email, password):
         from the Class User and add it to the session and commit
         it to the db then return that user back to us :)"""
 
-user = User(email=email, password=password)
+    user = User(email=email, password=password)
 
-db.session.add(user)
-db.session.commit()
+    db.session.add(user)
+    db.session.commit()
 
-return user
+    return user
 
 
 
