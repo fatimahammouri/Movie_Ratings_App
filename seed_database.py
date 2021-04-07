@@ -23,3 +23,20 @@ with open('data/movies.json') as f:
     movie_data = json.loads(f.read())
 
 
+
+# create empty list 
+movies_in_db = []
+
+# loop over each movie from movies_data list we got from json file
+# get it's values for the keys{title, overview...}
+# call create_movie function from crud.py
+# append this new movie to the empty List
+for movie in movie_data:
+    title, overview, poster_path = (movie['title'],
+                                     movie['overview'], 
+                                     movie['poster_path'])
+
+    release_date = datetime.strptime(movie['release_date'],'%Y-%m-%d')
+
+    db_movie = crud.create_movie(title, overview,release_date,poster_path)
+    movies_in_db.append(db_movie)
