@@ -16,6 +16,19 @@ def create_user(email, password):
 
     return user
 
+def create_movie(title, overview, release_date, poster_path):
+    """Create & Return a new Movie 
+        Soo... I will write  this function to instantiate a user
+        from the Class Movie, add it to the session and commit
+        it to the db then return that movie back to us :)"""
+
+    movie = Movie(title=title, overview=overview,
+                    release_date=release_date, poster_path=poster_path)
+    
+    db.session.add(movie)
+    db.session.commit()
+
+    return movie
 
 
 
