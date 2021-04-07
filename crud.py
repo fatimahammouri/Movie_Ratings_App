@@ -30,6 +30,19 @@ def create_movie(title, overview, release_date, poster_path):
 
     return movie
 
+def create_rating(user, movie, score):
+    """Create & return a New Rating
+        Soo... This function will instantiate a rating 
+        from the Class Rating, add it to the session and commit
+        it to the db then return that rating back to us :)"""
+
+    rating = Rating(user=user, movie=movie, score=score)
+
+    db.session.add(rating)
+    db.session.commit()
+
+    return rating
+
 
 
 if __name__== '__main__':
