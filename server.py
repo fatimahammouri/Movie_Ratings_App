@@ -12,7 +12,11 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-# Replace this with routes and view functions!
+
+#  we'll start writing Routes to our pages
+@app.route('/')
+def homepage():
+    return render_template('homepage.html')
 
 
 if __name__ == '__main__':
