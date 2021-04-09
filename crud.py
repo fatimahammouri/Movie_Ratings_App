@@ -29,13 +29,19 @@ def create_movie(title, overview, release_date, poster_path):
     db.session.commit()
 
     return movie
-    
+
 
 # after we wrote a function to create a movie
 # now, let's write a function to return ALL movies
 def get_movies():
     """this function is to retorn ALL movies"""
     return Movie.query.all()
+
+# this function is to help us get a specific Movie by it's id 
+# so we can use it in the /movie/<movie_id> route 
+def get_movie_by_id(movie_id):
+    """this function is to get a specific Movie by it's id"""
+    return Movie.query.get(movie_id)
 
 
 def create_rating(user, movie, score):

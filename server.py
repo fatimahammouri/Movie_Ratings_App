@@ -31,8 +31,10 @@ def all_movies():
 ########################################################################################
 # this route will render a page of a single movie details
 @app.route('/movies/<movie_id>')
-def show_movie():
-    return render_template('movie_details.html')
+def show_movie(movie_id): # ?????????????? 
+
+    movie = crud.get_movie_by_id(movie_id)
+    return render_template('movie_details.html', movie=movie)
 
 ########################################################################################
 
