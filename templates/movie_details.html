@@ -5,4 +5,11 @@
 {% block body %}
 
 <h1> {{ movie.title }} </h1>
+
+<h3> This movie was released {{movie.release_date}}</h3>
+
+<h2>Overview about this Movie : </h2>
+<p> {{ movie.overview }}</p>
+<img src= '{{ movie.poster_path }}'>   
+
 {% endblock %}
