@@ -29,6 +29,14 @@ def create_movie(title, overview, release_date, poster_path):
     db.session.commit()
 
     return movie
+    
+
+# after we wrote a function to create a movie
+# now, let's write a function to return ALL movies
+def get_movies():
+    """this function is to retorn ALL movies"""
+    return Movie.query.all()
+
 
 def create_rating(user, movie, score):
     """Create & return a New Rating
@@ -36,15 +44,4 @@ def create_rating(user, movie, score):
         from the Class Rating, add it to the session and commit
         it to the db then return that rating back to us :)"""
 
-    rating = Rating(user=user, movie=movie, score=score)
-
-    db.session.add(rating)
-    db.session.commit()
-
-    return rating
-
-
-
-if __name__== '__main__':
-    from server import app
-    connect_to_db(app)
+    rat

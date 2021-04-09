@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
+
 #  we'll start writing Routes to our pages
 @app.route('/')
 def homepage():
