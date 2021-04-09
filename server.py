@@ -14,22 +14,27 @@ app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
 
-# we'll start writing Routes to our pages
+
 # this is a route to the home page
 @app.route('/')
 def homepage():
     return render_template('homepage.html')
 
-
+########################################################################################
 # this route is for rendering a page that shows all movies
 @app.route('/movies')
 def all_movies():
     movies = crud.get_movies()
 
-    return render_template('all_movies.html')
+    return render_template('all_movies.html', movies=movies) #movies here is what
+                                                            #i'm passing to jinja
+########################################################################################
+# this route will render a page of a single movie details
+@app.route('/movies/<movie_id>')
+def show_movie():
+    return render_template('movie_details.html')
 
-
-
+########################################################################################
 
 
 if __name__ == '__main__':
