@@ -44,4 +44,15 @@ def create_rating(user, movie, score):
         from the Class Rating, add it to the session and commit
         it to the db then return that rating back to us :)"""
 
-    rat
+    rating = Rating(user=user, movie=movie, score=score)
+
+    db.session.add(rating)
+    db.session.commit()
+
+    return rating
+
+
+
+if __name__== '__main__':
+    from server import app
+    connect_to_db(app)
